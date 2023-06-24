@@ -15,6 +15,10 @@
       {
          "matches": ["https://sv.iuh.edu.vn/sinh-vien/chi-tiet-phieu-khao-sat.html*"],
          "js": ["scripts/SurveyDetail.js"]
+      },
+      {
+         "matches": ["https://sv.iuh.edu.vn/tra-cuu/ket-qua-hoc-tap.html?k=*"],
+         "js": ["scripts/ViewScore.js"]
       }
    ]
 }

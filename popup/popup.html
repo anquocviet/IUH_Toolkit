@@ -14,32 +14,34 @@
 
   <div class="wrapper">
     <div class="logo"><img src="../images/iuh-logo.png" alt="Logo" class="logo-img"></div>
-    <div class="text-field">
-      <label for="MaSinhVien">Mã sinh viên</label>
-      <input autocomplete="off" type="text" name="MaSinhVien" id="MaSinhVien" placeholder="Nhập mã sinh viên"
-        class="infoST" />
-    </div>
-    <div class="text-field">
-      <label for="HoTen">Họ tên:</label>
-      <input autocomplete="off" type="text" name="HoTen" id="HoTen" placeholder="Nhập mã họ và tên:" class="infoST" />
-    </div>
-    <div class="text-field">
-      <label for="NgaySinh">Ngày sinh:</label>
-      <input autocomplete="off" type="text" name="NgaySinh" id="NgaySinh" placeholder="VD: 01/01/2003" class="infoST" />
-    </div>
-    <div class="text-field">
-      <label for="SoDienThoai">Số điện thoại:</label>
-      <input autocomplete="off" type="text" name="SoDienThoai" id="SoDienThoai" placeholder="Nhập số điện thoại"
-        class="infoST" />
-    </div>
-    <!-- <label for="input-captcha">Nhập mã bảo vệ:</label>
-    <input type="text" id="input-captcha" class="input-captcha" name="input-captcha" placeholder="Nhập mã">
-    <img src="" class="captcha" alt="Captcha"> -->
+    <form class="form-input">
+      <div class="text-field">
+        <label for="MaSinhVien">Mã sinh viên</label>
+        <input autocomplete="off" type="text" name="MaSinhVien" id="MaSinhVien" placeholder="Nhập mã sinh viên"
+          class="infoST" />
+      </div>
+      <div class="text-field">
+        <label for="HoTen">Họ tên:</label>
+        <input autocomplete="off" type="text" name="HoTen" id="HoTen" placeholder="Nhập mã họ và tên:" class="infoST" />
+      </div>
+      <div class="text-field">
+        <label for="NgaySinh">Ngày sinh:</label>
+        <input autocomplete="off" type="text" name="NgaySinh" id="NgaySinh" placeholder="VD: 01/01/2003"
+          class="infoST" />
+      </div>
+      <div class="text-field">
+        <label for="SoDienThoai">Số điện thoại:</label>
+        <input autocomplete="off" type="text" name="SoDienThoai" id="SoDienThoai" placeholder="Nhập số điện thoại"
+          class="infoST" />
+      </div>
+    </form>
+    <small class="error-msg"></small>
     <div class="circle-loading"></div>
-    <button class="submit">Submit</button>
+    <button class="schedule">Xem lịch học</button>
+    <button class="score">Xem điểm</button>
   </div>
 
-  <script src="./popup.js"></script>
+  <script type="module" src="./popup.js"></script>
 </body>
 
 </html>

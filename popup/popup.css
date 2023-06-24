@@ -29,6 +29,10 @@ body {
    margin-top: 16px;
 }
 
+.text-field:last-child {
+   margin-bottom: 8px;
+}
+
 .text-field label {
    display: inline-block;
    font-weight: 600;
@@ -55,12 +59,13 @@ body {
    outline: none;
 }
 
-.submit {
+.schedule,
+.score {
    --color: #384389;
    font-family: 'Poppins', sans-serif;
    color: white;
    padding: 8px 30px;
-   margin-top: 16px;
+   margin-top: 8px;
    border-radius: 4px;
    background-color: transparent;
    cursor: pointer;
@@ -73,9 +78,13 @@ body {
    isolation: isolate;
 }
 
-.submit:hover,
-.submit:focus {
+.schedule:hover,
+.score:hover {
    background-color: #18257d;
+}
+
+.error-msg {
+   color: rgb(232, 39, 10);
 }
 
 /* Animation */

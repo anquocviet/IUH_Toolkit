@@ -1,11 +1,13 @@
+import validation, { validateIDStudent, validateName, validateBirthday, validatePhoneNumber } from './Validation.js';
+
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
 const inputInfo = $$('.infoST');
-const imgCaptcha = $('.captcha');
-const inputCaptcha = $('.input-captcha');
-const submitBtn = $('.submit');
+const viewScheduleBtn = $('.schedule');
+const viewScoreBtn = $('.score');
 const circleLoading = $('.circle-loading');
+const errorMsg = $('.error-msg');
 
 const STUDENT_STORAGE_KEY = 'IUH_INFO';
 const data = JSON.parse(localStorage.getItem(STUDENT_STORAGE_KEY)) || {};
@@ -21,19 +23,10 @@ const setData = () => {
 })();
 
 const proxyServer = 'https://corsproxy.io/?';
-const urlGetCaptcha = proxyServer + encodeURIComponent('https://sv.iuh.edu.vn/WebCommon/GetCaptcha');
 const urlSearchInfo = proxyServer + encodeURI('https://sv.iuh.edu.vn/tra-cuu-thong-tin.html?Length=14');
 
-// fetch(urlGetCaptcha)
-//    .then((response) => response.blob())
-//    .then((blobImage) => {
-//       imgCaptcha.src = URL.createObjectURL(blobImage);
-//    })
-//    .catch((error) => console.error(error));
-
-let linkSchedule = '';
-const getLinkSchedule = () => {
-   const linkSchedule = fetch(urlSearchInfo, {
+const getKey = () => {
+   return fetch(urlSearchInfo, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
@@ -42,14 +35,17 @@ const getLinkSchedule = () => {
    })
       .then((response) => response.text())
       .then((data) => {
-         const regex = /href=".tra-cuu.*"/g;
+         const regex = /k=.*"/;
          const linkArr = (data + '').match(regex);
-         return linkArr[1].split('"')[1];
+         return linkArr[0].split('"')[0];
       })
       .catch((error) => {
-         console.error('Error:', error);
+         inputInfo.forEach((input) => {
+            input.style.borderColor = 'red';
+         });
+         errorMsg.innerText = 'Không tìm thấy sinh viên, vui lòng kiểm tra lại';
+         inputInfo[0].focus();
       });
-   return linkSchedule;
 };
 
 const getDataFromInput = () => {
@@ -59,11 +55,39 @@ const getDataFromInput = () => {
    // data.Captcha = inputCaptcha.value;
 };
 
-submitBtn.onclick = async () => {
+inputInfo[0].onblur = () => validateIDStudent(inputInfo[0].value);
+inputInfo[1].onblur = () => validateName(inputInfo[1].value);
+inputInfo[2].onblur = () => validateBirthday(inputInfo[2].value);
+inputInfo[3].onblur = () => validatePhoneNumber(inputInfo[3].value);
+
+viewScheduleBtn.onclick = async () => {
+   if (!validation()) return false;
    circleLoading.style.display = 'block';
    getDataFromInput();
    setData();
-   const linkSchedule = await getLinkSchedule();
+   const key = await getKey();
    circleLoading.style.display = 'none';
-   await window.open(`https://sv.iuh.edu.vn${linkSchedule}`, '_blank');
+   if (key !== undefined) {
+      inputInfo.forEach((input) => {
+         input.style.borderColor = '';
+      });
+      errorMsg.innerText = '';
+      await window.open(`https://sv.iuh.edu.vn/tra-cuu/lich-hoc-theo-tuan.html?${key}`, '_blank');
+   }
+};
+
+viewScoreBtn.onclick = async () => {
+   if (!validation()) return false;
+   circleLoading.style.display = 'block';
+   getDataFromInput();
+   setData();
+   const key = await getKey();
+   circleLoading.style.display = 'none';
+   if (key !== undefined) {
+      inputInfo.forEach((input) => {
+         input.style.borderColor = '';
+      });
+      errorMsg.innerText = '';
+      await window.open(`https://sv.iuh.edu.vn/tra-cuu/ket-qua-hoc-tap.html?${key}`, '_blank');
+   }
 };
