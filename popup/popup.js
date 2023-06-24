@@ -1,4 +1,4 @@
-import validation, { validateIDStudent, validateName, validateBirthday, validatePhoneNumber } from './Validation.js';
+import validation, { validateIDStudent, validateName, validateBirthday, validatePhoneNumber } from './validation.js';
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
@@ -52,7 +52,6 @@ const getDataFromInput = () => {
    inputInfo.forEach((input) => {
       data[input.name] = input.value;
    });
-   // data.Captcha = inputCaptcha.value;
 };
 
 inputInfo[0].onblur = () => validateIDStudent(inputInfo[0].value);
