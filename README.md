@@ -25,7 +25,7 @@ Extension hỗ trợ sinh viên IUH thao tác dễ dàng hơn trên hệ thống
    ![Bật Dev mode cho trình duyệt](./images/manage-extension-page.png)
 3. Việc đơn giản bây giờ chỉ cần giải nén file cài đặt, kéo thư mục vừa giải nén vào trong trang Manage Extension là thành công việc cài đặt
 
-   > Nếu kéo thư mục vào mà không cài đặt được extension, hãy chọn `Load unpacked` và trỏ đến thư mục đã giải nén
+   > Nếu kéo thư mục vào mà không cài đặt được extension, hãy chọn **Load unpacked** và trỏ đến thư mục đã giải nén
 
    ![Cài đặt extension thành công](./images/finished-install-extension.png)
 
