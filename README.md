@@ -16,6 +16,7 @@ Extension hỗ trợ sinh viên IUH thao tác dễ dàng hơn trên hệ thống
 ## Cài đặt:
 
 -  Extension hỗ trợ trên các trình duyệt có nhân là Chromium: Google Chrome, Microsoft Edge, Cốc Cốc, Opera, Brave,...Vì vậy, nếu bạn sử dụng các trình duyệt như Safari, Firefox,... thì không thể cài đặt được extension này
+-  Sau khi giải nén thư mục cài đặt, bạn **tuyệt đối** không được xóa thư mục sau giải nén đó. Nếu xóa đi extension ngay lập tức bị lỗi, phải cài đặt lại.
 
 ### Hướng dẫn cài đặt:
 
